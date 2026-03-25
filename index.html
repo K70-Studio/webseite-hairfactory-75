@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hairfactory 75 by Nicky B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        neonPink: '#ff007f', // Magenta/Neon Pink
+                        darkBg: '#050505',
+                        cardBg: '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #f3f4f6;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-header {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+        }
+
+        .service-card {
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: #ff007f;
+        }
+
+        .image-card {
+            transition: all 0.5s ease;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-neonPink selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wider relative z-20">HAIRFACTORY<span
+                    class="text-neonPink">75</span></a>
+
+            <!-- Desktop Menu & Socials -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#philosophie"
+                    class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Philosophie</a>
+                <a href="#service"
+                    class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Service</a>
+                <a href="#team" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Team</a>
+                <a href="#preisliste" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Preise</a>
+                <a href="#kontakt" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Kontakt</a>
+                <a href="#anfahrt" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Anfahrt</a>
+
+                <div class="flex items-center space-x-4 pl-4 border-l border-white/20">
+                    <a href="https://www.facebook.com/Hairfactory75/" target="_blank" rel="noopener noreferrer"
+                        class="text-white hover:text-neonPink transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/hairfactory75_by_nicki_b?igsh=N3NzeWl2cmoxM2I2" target="_blank"
+                        rel="noopener noreferrer" class="text-white hover:text-neonPink transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="lg:hidden flex items-center relative z-20">
+                <button id="mobile-menu-btn"
+                    class="text-white hover:text-neonPink focus:outline-none transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-darkBg/95 backdrop-blur-md z-10 flex flex-col justify-center items-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+            <a href="#philosophie"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Philosophie</a>
+            <a href="#service"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Service</a>
+            <a href="#team"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Team</a>
+            <a href="#preisliste"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Preise</a>
+            <a href="#kontakt"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Kontakt</a>
+            <a href="#anfahrt"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Anfahrt</a>
+
+            <div class="flex items-center space-x-6 pt-8 border-t border-white/10 w-1/2 justify-center">
+                <a href="https://www.facebook.com/Hairfactory75/" target="_blank" rel="noopener noreferrer"
+                    class="mobile-link text-white hover:text-neonPink transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/hairfactory75_by_nicki_b?igsh=N3NzeWl2cmoxM2I2" target="_blank"
+                    rel="noopener noreferrer" class="mobile-link text-white hover:text-neonPink transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-black">
+        <!-- Video Background with object-cover to ensure full coverage without distortion on all devices -->
+        <video autoplay loop muted playsinline class="absolute z-0 w-full h-full object-cover">
+            <source src="Titelvideo Hairfactory75 neu.mp4" type="video/mp4">
+        </video>
+        <div class="absolute z-10 inset-0 bg-black/40"></div>
+
+        <!-- Logo Overlay (zwischen Header und Schere) -->
+        <div
+            class="absolute z-20 inset-0 flex items-start justify-center pointer-events-none pt-[20vh] md:pt-[22vh] lg:pt-[24vh]">
+            <img src="images/Logo Hairfactory weiß.png" alt="Hairfactory 75 Logo"
+                class="w-[85%] max-w-[320px] md:max-w-xl lg:max-w-[800px] xl:max-w-[1000px] drop-shadow-2xl fade-in mix-blend-screen"
+                style="transition-delay: 200ms;">
+        </div>
+
+        <div class="relative z-20 w-full h-full flex flex-col justify-end items-center pb-32 pointer-events-none">
+            <div class="absolute bottom-10 animate-bounce">
+                <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophie -->
+    <section id="philosophie" class="py-24 px-6 lg:px-8 bg-darkBg">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center fade-in mb-16">
+                <h2 class="text-xs text-neonPink font-bold tracking-[0.2em] uppercase mb-4">Unsere Philosophie</h2>
+                <h3 class="text-4xl md:text-5xl font-light leading-tight mb-8">Leidenschaft für Haare.<br>Liebe zum
+                    Detail.
+                </h3>
+                <div class="w-24 h-1 bg-neonPink mx-auto mb-8"></div>
+                <p class="text-gray-400 text-lg leading-relaxed font-light max-w-3xl mx-auto">
+                    In der Hairfactory 75 by Nicky B vereinen wir handwerkliche Perfektion mit modernsten
+                    Styling-Trends.
+                    Unser Anspruch ist es, deine individuelle Schönheit hervorzuheben und dir einen Moment der absoluten
+                    Entspannung zu schenken.
+                </p>
+            </div>
+
+            <div class="fade-in group w-full rounded-3xl bg-neutral-800 border-2 border-neonPink overflow-hidden p-1 transition-all duration-700 shadow-2xl relative"
+                style="transition-delay: 200ms;">
+                <img src="images/Galerie 5.jpg" alt="Hairfactory 75 Philosophie"
+                    class="w-full h-auto max-h-[600px] object-cover rounded-3xl grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Öffnungszeiten Detail -->
+    <section class="py-16 bg-cardBg/30 border-y border-white/5">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center fade-in max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-light text-neonPink mb-8">Öffnungszeiten</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg font-light text-left md:text-center">
+                    <div class="space-y-4 text-gray-300">
+                        <p><span class="text-white font-medium block">Montag:</span> Ruhetag</p>
+                        <p><span class="text-white font-medium block">Dienstag:</span> 08:00 – 12:00 Uhr und 13:00 –
+                            18:00
+                            Uhr</p>
+                        <p><span class="text-white font-medium block">Mittwoch:</span> 08:00 – 12:00 Uhr und 13:00 –
+                            18:00
+                            Uhr</p>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <p><span class="text-white font-medium block">Donnerstag:</span> 08:00 – 12:00 Uhr und 13:00 –
+                            20:00
+                            Uhr<br><span class="text-sm text-neonPink">(Langer Donnerstag)</span></p>
+                        <p><span class="text-white font-medium block">Freitag:</span> 08:00 – 12:00 Uhr und 13:00 –
+                            18:00
+                            Uhr</p>
+                        <p><span class="text-white font-medium block">Samstag:</span> Geschlossen*</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-12 text-sm text-gray-400 bg-white/5 p-6 rounded-lg leading-relaxed text-left md:text-center">
+                    <strong class="text-white block text-base mb-2">* Dein großer Tag in der Hairfactory75:</strong>
+                    Regulär bleibt unser Salon an Samstagen geschlossen. Für Brautstylings und besondere Events öffnen
+                    wir
+                    unsere Türen aber sehr gerne exklusiv für dich! Sichere dir rechtzeitig deinen Wunschtermin!
+                </div>
+            </div>
+
+            <div class="fade-in group w-full rounded-3xl bg-neutral-800 border-2 border-neonPink overflow-hidden p-1 transition-all duration-700 shadow-2xl relative"
+                style="transition-delay: 200ms;">
+                <img src="images/Galerie 6.jpg" alt="Hairfactory 75 Öffnungszeiten"
+                    class="w-full h-auto max-h-[600px] object-cover object-center rounded-3xl grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminvereinbarung -->
+    <section class="py-16 bg-darkBg text-center">
+        <div class="max-w-3xl mx-auto px-6 lg:px-8 fade-in">
+            <h3 class="text-3xl font-light mb-8 leading-tight">Terminvereinbarung</h3>
+            <div class="bg-cardBg/50 border border-white/5 rounded-3xl p-10 md:p-12 shadow-xl relative overflow-hidden">
+                <!-- Dekorative Effekte -->
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-neonPink/20 rounded-full blur-[60px] pointer-events-none">
+                </div>
+                <div
+                    class="absolute -bottom-24 -left-24 w-48 h-48 bg-neonPink/10 rounded-full blur-[60px] pointer-events-none">
+                </div>
+
+                <p class="text-gray-300 text-lg md:text-xl mb-6 font-light relative z-10">Vereinbare deinen Wunschtermin
+                    ganz einfach telefonisch unter:</p>
+                <a href="tel:+43645221054"
+                    class="inline-block text-4xl md:text-5xl font-semibold text-neonPink hover:text-pink-400 hover:scale-105 transition-all duration-300 relative z-10">
+                    +43 6452 21054
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unser Service -->
+    <section id="service" class="py-24 px-6 lg:px-8 bg-darkBg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-4xl md:text-5xl font-light">Unser Service</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Damen -->
+                <div
+                    class="service-card group relative overflow-hidden rounded-xl bg-cardBg border border-white/10 p-8 fade-in">
+                    <h4 class="text-2xl font-medium text-white mb-3">Damen</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Individuelle Schnitte und typgerechte Beratung
+                        für den perfekten Look.</p>
+                </div>
+                <!-- Herren -->
+                <div class="service-card group relative overflow-hidden rounded-xl bg-cardBg border border-white/10 p-8 fade-in"
+                    style="transition-delay: 100ms;">
+                    <h4 class="text-2xl font-medium text-white mb-3">Herren</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Präzise Herrenschnitte und klassisches
+                        Barbier-Handwerk auf höchstem Niveau.</p>
+                </div>
+                <!-- Coloration -->
+                <div class="service-card group relative overflow-hidden rounded-xl bg-cardBg border border-white/10 p-8 fade-in"
+                    style="transition-delay: 200ms;">
+                    <h4 class="text-2xl font-medium text-white mb-3">Coloration</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Balayage, Highlights oder komplette
+                        Farbveränderung mit premium Produkten.</p>
+                </div>
+                <!-- Pflege -->
+                <div class="service-card group relative overflow-hidden rounded-xl bg-cardBg border border-white/10 p-8 fade-in"
+                    style="transition-delay: 300ms;">
+                    <h4 class="text-2xl font-medium text-white mb-3">Pflege</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Tiefenwirksame Treatments und exklusive
+                        Kopfhautbehandlungen.</p>
+                </div>
+            </div>
+
+            <div class="fade-in group w-full rounded-3xl bg-neutral-800 border-2 border-neonPink overflow-hidden p-1 transition-all duration-700 shadow-2xl relative"
+                style="transition-delay: 400ms;">
+                <img src="images/Galerie 8.jpeg" alt="Hairfactory 75 Unser Service"
+                    class="w-full h-auto max-h-[600px] object-cover object-center rounded-3xl grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Unser Team -->
+    <section id="team" class="py-24 px-6 lg:px-8 bg-black">
+        <div class="max-w-7xl mx-auto text-center fade-in">
+            <h3 class="text-4xl md:text-5xl font-light mb-20">Unser Team</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Boss Nicky B. -->
+                <div class="fade-in group">
+                    <div
+                        class="w-48 h-48 mx-auto mb-6 rounded-full bg-neutral-800 border-2 border-neonPink overflow-hidden p-1">
+                        <img src="images/Unser Team der Boss.JPEG" alt="Boss Nicky B."
+                            class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h4 class="text-2xl font-semibold text-white">Boss Nicky B.</h4>
+                    <p class="text-neonPink uppercase text-xs font-bold mt-1">Master Stylist</p>
+                </div>
+                <!-- Erni -->
+                <div class="fade-in group" style="transition-delay: 100ms;">
+                    <div
+                        class="w-48 h-48 mx-auto mb-6 rounded-full bg-neutral-800 border-2 border-transparent group-hover:border-neonPink overflow-hidden p-1 transition-all duration-500">
+                        <img src="images/Unser Team Erni.JPEG" alt="Erni"
+                            class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h4 class="text-2xl font-semibold text-white">Erni</h4>
+                    <p class="text-neonPink uppercase text-xs font-bold mt-1">Top Stylist</p>
+                </div>
+                <!-- Birgit -->
+                <div class="fade-in group" style="transition-delay: 200ms;">
+                    <div
+                        class="w-48 h-48 mx-auto mb-6 rounded-full bg-neutral-800 border-2 border-transparent group-hover:border-neonPink overflow-hidden p-1 transition-all duration-500">
+                        <img src="images/Unser Team Birgit.JPEG" alt="Birgit"
+                            class="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h4 class="text-2xl font-semibold text-white">Birgit</h4>
+                    <p class="text-neonPink uppercase text-xs font-bold mt-1">Top Stylist</p>
+                </div>
+            </div>
+
+            <!-- Gesamtes Team Foto -->
+            <div class="mt-20 fade-in group" style="transition-delay: 300ms;">
+                <div
+                    class="w-full max-w-5xl mx-auto rounded-3xl bg-neutral-800 border-2 border-transparent group-hover:border-neonPink overflow-hidden p-1 transition-all duration-700 shadow-2xl">
+                    <img src="images/Unser Team.JPEG" alt="Das Team der Hairfactory 75"
+                        class="w-full h-auto object-cover aspect-video rounded-3xl grayscale group-hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preisliste -->
+    <section id="preisliste" class="py-24 px-6 lg:px-8 bg-darkBg border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center fade-in mb-16">
+                <h3 class="text-4xl md:text-5xl font-light leading-tight mb-8">Preisliste</h3>
+                <div class="w-24 h-1 bg-neonPink mx-auto mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Damen -->
+                <div class="lg:col-span-2 space-y-8 fade-in">
+                    <div class="bg-cardBg/50 border border-white/10 rounded-2xl p-8 hover:border-neonPink transition-colors duration-300">
+                        <h4 class="text-3xl font-light text-white mb-6 flex items-center gap-3">
+                            <span class="text-neonPink">///</span> Damen
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Waschen</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="w-6 mr-1"></span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">4,20 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Formschnitt</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="w-6 mr-1"></span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">29,20 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Neuschnitt</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="w-6 mr-1"></span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">33,60 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Föhnen</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">27,80 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Haarfarbe</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">63,10 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Haarfarbe + Strähnen</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">74,80 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Tönen</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">53,80 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Strähnen ganzer Kopf</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">78,80 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Dauerwelle</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">51,60 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Pflege</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">6,60 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Olaplex</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">22,60 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Hochstecken</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">30,60 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Nägel (Acryl, Gel...) neu</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">77,10 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Maniküre</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">24,10 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Braut Service <span class="text-xs text-gray-500 block">(Probe stecken, Maniküre, Make up)</span></span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">220,00 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Make up</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">12,70 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Harzen</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">11,90 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Augenservice</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">24,50 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herren & Kinder -->
+                <div class="space-y-8 fade-in" style="transition-delay: 200ms;">
+                    <!-- Herren -->
+                    <div class="bg-cardBg/50 border border-white/10 rounded-2xl p-8 hover:border-neonPink transition-colors duration-300">
+                        <h4 class="text-3xl font-light text-white mb-6 flex items-center gap-3">
+                            <span class="text-neonPink">///</span> Herren
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Maschinenschnitt</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">12,80 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Nassschnitt</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="w-6 mr-1"></span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">29,20 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Herrenservice <span class="text-xs text-gray-500 block">(Waschen, schneiden, föhnen und Kopfmassage)</span></span>
+                                <div class="flex items-center ml-4">
+                                    <span class="w-6 mr-1"></span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">38,80 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kinder / Jugendliche -->
+                    <div class="bg-cardBg/50 border border-white/10 rounded-2xl p-8 hover:border-neonPink transition-colors duration-300">
+                        <h4 class="text-3xl font-light text-white mb-6 flex items-center gap-3">
+                            <span class="text-neonPink">///</span> Kinder / Jugendliche
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Schnitt</span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">10,10 €</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end border-b border-white/5 pb-2">
+                                <span class="text-gray-300 font-light">Service <span class="text-xs text-gray-500 block">(waschen, schneiden, föhnen)</span></span>
+                                <div class="flex items-center ml-4">
+                                    <span class="text-white font-light text-sm w-6 text-left mr-1">ab</span>
+                                    <span class="text-neonPink font-medium whitespace-nowrap text-right w-[72px]">34,90 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center text-sm text-gray-500 fade-in" style="transition-delay: 300ms;">
+                <p>*Alle Preise in Euro inkl. gesetzlicher MwSt. Änderungen und Irrtümer vorbehalten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="py-4 bg-darkBg">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="overflow-hidden bg-neutral-900 group">
+                <img src="images/Galerie 1.JPEG"
+                    class="w-full aspect-square object-cover image-card opacity-80 group-hover:opacity-100">
+            </div>
+            <div class="overflow-hidden bg-neutral-900 group">
+                <img src="images/Portfolio 1.jpg"
+                    class="w-full aspect-square object-cover image-card opacity-80 group-hover:opacity-100">
+            </div>
+            <div class="overflow-hidden bg-neutral-900 group">
+                <img src="images/Galerie 2.JPEG"
+                    class="w-full aspect-square object-cover image-card opacity-80 group-hover:opacity-100">
+            </div>
+            <div class="overflow-hidden bg-neutral-900 group">
+                <img src="images/Galerie 3.JPEG"
+                    class="w-full aspect-square object-cover image-card opacity-80 group-hover:opacity-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- Anfahrt -->
+    <section id="anfahrt" class="py-24 px-6 lg:px-8 bg-darkBg border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center fade-in mb-16">
+                <h2 class="text-xs text-neonPink font-bold tracking-[0.2em] uppercase mb-4">So findest du uns</h2>
+                <h3 class="text-4xl md:text-5xl font-light leading-tight mb-8">Anfahrt</h3>
+                <div class="w-24 h-1 bg-neonPink mx-auto mb-8"></div>
+                <p class="text-gray-400 text-lg leading-relaxed font-light max-w-2xl mx-auto mb-12">
+                    Dein Weg zu uns in den Salon Hairfactory 75. Wir freuen uns auf deinen Besuch!
+                </p>
+            </div>
+
+            <div class="fade-in group w-full max-w-4xl mx-auto rounded-3xl bg-neutral-800 border-2 border-transparent hover:border-neonPink overflow-hidden p-1 transition-all duration-700 shadow-2xl relative mb-12" style="transition-delay: 200ms;">
+                <video autoplay loop muted playsinline class="w-full h-auto aspect-video rounded-3xl object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                    <source src="images/Anfahrt Hairfactory75.mp4" type="video/mp4">
+                    Dein Browser unterstützt keine HTML5-Videos.
+                </video>
+            </div>
+
+            <div class="fade-in w-full max-w-4xl mx-auto rounded-3xl bg-neutral-800 border border-white/10 overflow-hidden shadow-2xl relative" style="transition-delay: 300ms;">
+                <!-- 2-Klick Google Maps Overlay -->
+                <div id="map-overlay" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-cardBg text-center p-6 h-[450px] transition-opacity duration-300">
+                    <svg class="w-12 h-12 text-neonPink mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <h4 class="text-xl md:text-2xl font-light text-white mb-3">Google Maps aktivieren</h4>
+                    <p class="text-sm text-gray-400 mb-6 max-w-md mx-auto">Wenn du die Karte lädst, akzeptierst du die Datenschutzerklärung von Google. Es werden Daten (inkl. IP-Adresse) an Server von Google übertragen.</p>
+                    <button id="load-map-btn" class="px-6 py-2 bg-neonPink text-white text-sm font-medium rounded-full hover:bg-pink-600 transition-all duration-300 shadow-[0_0_15px_rgba(255,0,127,0.3)] hover:shadow-[0_0_20px_rgba(255,0,127,0.6)]">
+                        Karte laden
+                    </button>
+                    <a href="datenschutz.html" class="text-xs text-gray-500 hover:text-white mt-4 transition-colors">Mehr erfahren im Datenschutz</a>
+                </div>
+
+                <iframe id="google-map-iframe" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d671.2185514695026!2d13.461019676767355!3d47.38768050849312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4776d5e1dc8b1bed%3A0xe54c1dc8fd292b3a!2sHairfactory%2075%20by%20nicki%20B.!5e0!3m2!1sde!2sat!4v1709462854371!5m2!1sde!2sat" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="grayscale hover:grayscale-0 transition-all duration-700 relative z-0">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Kontakt -->
+    <footer id="kontakt"
+        class="bg-black pt-24 pb-8 px-6 lg:px-8 border-t border-white/10 shadow-[0_-10px_40px_rgba(255,0,127,0.05)]">
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center mb-16 fade-in">
+            <!-- Kontakt Infos -->
+            <a href="#" class="text-4xl font-bold tracking-wider text-white mb-8 block">HAIRFACTORY<span
+                    class="text-neonPink">75</span></a>
+            <div class="space-y-4 text-gray-400 text-lg w-full">
+                <p><strong class="text-white">Adresse:</strong> Schernbergstraße 9, 5550 Radstadt</p>
+                <p><strong class="text-white">Telefon:</strong> +43 6452 21054</p>
+                <p><strong class="text-white">E-Mail:</strong> <a href="mailto:nicki.bog@gmail.com"
+                        class="hover:text-neonPink border-b border-transparent hover:border-neonPink transition-colors">nicki.bog@gmail.com</a>
+                </p>
+
+                <div class="pt-8 border-t border-white/10 mt-8">
+                    <strong class="text-white block mb-4 text-xl">Öffnungszeiten:</strong>
+                    <div class="inline-block text-left">
+                        <p>Di, Mi, Fr: 08:00–12:00 und 13:00–18:00 Uhr</p>
+                        <p>Do: 08:00–12:00 und 13:00–20:00 Uhr</p>
+                        <p class="text-neonPink mt-1">Mo: Ruhetag | Sa: Geschlossen*</p>
+                        <p class="text-gray-500 mt-2 text-xs italic">*(Samstags exklusive Termine für Braut- &
+                            Eventstyling auf Anfrage)</p>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/10 mt-8 flex justify-center gap-6">
+                    <a href="https://www.facebook.com/Hairfactory75/" target="_blank" rel="noopener noreferrer"
+                        class="text-white hover:text-neonPink transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/hairfactory75_by_nicki_b?igsh=N3NzeWl2cmoxM2I2" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-white hover:text-neonPink transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-8 text-center md:flex justify-between text-xs text-gray-500">
+            <p>&copy; 2026 Hairfactory 75 by Nicky B.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+                <a href="impressum.html" class="hover:text-neonPink">Impressum</a>
+                <a href="datenschutz.html" class="hover:text-neonPink">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Header Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-header', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('glass-header', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon-path');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                // Close icon (X)
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                // Hamburger icon (☰)
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 2-Klick Google Maps Lösung
+        const loadMapBtn = document.getElementById('load-map-btn');
+        const mapOverlay = document.getElementById('map-overlay');
+        const mapIframe = document.getElementById('google-map-iframe');
+
+        if (loadMapBtn && mapOverlay && mapIframe) {
+            loadMapBtn.addEventListener('click', () => {
+                mapIframe.src = mapIframe.getAttribute('data-src');
+                mapOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    mapOverlay.style.display = 'none';
+                }, 300);
+            });
+        }
+    </script>
+</body>
+
+</html>

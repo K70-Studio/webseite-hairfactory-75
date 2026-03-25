@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Hairfactory 75 by Nicky B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        neonPink: '#ff007f', // Magenta/Neon Pink
+                        darkBg: '#050505',
+                        cardBg: '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #f3f4f6;
+        }
+
+        .glass-header {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-neonPink selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-header py-2 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider relative z-20">HAIRFACTORY<span
+                    class="text-neonPink">75</span></a>
+
+            <!-- Desktop Menu & Socials -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#philosophie"
+                    class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Philosophie</a>
+                <a href="index.html#service"
+                    class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Service</a>
+                <a href="index.html#team" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Team</a>
+                <a href="index.html#preisliste" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Preise</a>
+                <a href="index.html#kontakt" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Kontakt</a>
+                <a href="index.html#anfahrt" class="text-sm font-medium text-gray-300 hover:text-neonPink transition-colors">Anfahrt</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <div class="lg:hidden flex items-center relative z-20">
+                <button id="mobile-menu-btn"
+                    class="text-white hover:text-neonPink focus:outline-none transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-darkBg/95 backdrop-blur-md z-10 flex flex-col justify-center items-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+            <a href="index.html#philosophie"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Philosophie</a>
+            <a href="index.html#service"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Service</a>
+            <a href="index.html#team"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Team</a>
+            <a href="index.html#preisliste"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Preise</a>
+            <a href="index.html#kontakt"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Kontakt</a>
+            <a href="index.html#anfahrt"
+                class="mobile-link text-2xl font-medium text-white hover:text-neonPink transition-colors">Anfahrt</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-6 lg:px-8 max-w-4xl mx-auto min-h-screen">
+        <h1 class="text-4xl md:text-5xl font-light leading-tight mb-8">Impressum</h1>
+        <div class="w-24 h-1 bg-neonPink mb-12"></div>
+
+        <div class="space-y-8 text-gray-300 font-light leading-relaxed">
+            
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz.</h2>
+                
+                <p class="mb-2"><strong class="text-white">Inhaberin:</strong> Nicole Bogensperger</p>
+                <p class="mb-2"><strong class="text-white">Unternehmensbezeichnung:</strong> Hairfactory 75 by Nicky B.</p>
+                <p class="mb-2"><strong class="text-white">Rechtsform:</strong> Einzelunternehmen</p>
+                <p class="mb-2"><strong class="text-white">Sitz des Unternehmens:</strong> Schernbergstraße 9, 5550 Radstadt, Österreich</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">Kontaktdaten</h2>
+                <p class="mb-2"><strong class="text-white">Tel.:</strong> +43 6452 21054</p>
+                <p class="mb-2"><strong class="text-white">E-Mail:</strong> <a href="mailto:nicki.bog@gmail.com" class="text-neonPink hover:underline">nicki.bog@gmail.com</a></p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">Unternehmensdaten</h2>
+                <p class="mb-2"><strong class="text-white">UID-Nummer:</strong> ATU75007029</p>
+                <p class="mb-2"><strong class="text-white">Berufsbezeichnung:</strong> Friseur</p>
+                <p class="mb-2"><strong class="text-white">Mitglied bei der WKO:</strong> <a href="https://firmen.wko.at/nicole-bogensperger/salzburg/?firmaid=2adcf8de-6d21-4248-b604-14ab39bcab54" target="_blank" rel="noopener noreferrer" class="text-neonPink hover:underline">WKO Firmen A-Z Profil</a></p>
+                <p class="mb-2"><strong class="text-white">Aufsichtsbehörde/Gewerbebehörde:</strong> Bezirkshauptmannschaft St. Johann im Pongau</p>
+                <p class="mb-2"><strong class="text-white">Verleihungsstaat:</strong> Österreich</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">EU-Streitschlichtung</h2>
+                <p>Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.<br>
+                Verbraucher haben die Möglichkeit, Beschwerden an die Online Streitbeilegungsplattform der Europäischen Kommission unter <a href="http://ec.europa.eu/odr?tid=121115858" target="_blank" class="text-neonPink hover:underline">http://ec.europa.eu/odr</a> zu richten. Sie können Ihre Beschwerde auch direkt bei uns bei folgender E-Mail-Adresse einbringen: nicki.bog@gmail.com.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">Haftung für Inhalte dieser Webseite</h2>
+                <p>Wir entwickeln die Inhalte dieser Webseite ständig weiter und bemühen uns korrekte und aktuelle Informationen bereitzustellen. Leider können wir keine Haftung für die Korrektheit aller Inhalte auf dieser Webseite übernehmen, speziell für jene die seitens Dritter bereitgestellt wurden.<br>
+                Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitten wir Sie uns umgehend zu kontaktieren, Sie finden die Kontaktdaten im Impressum.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-medium text-white mb-4">Urheberrechtshinweis</h2>
+                <p>Alle Inhalte dieser Webseite (Bilder, Fotos, Texte, Videos) unterliegen dem Urheberrecht. Falls notwendig, werden wir die unerlaubte Nutzung von Teilen der Inhalte unserer Seite rechtlich verfolgen.</p>
+                <p class="mt-4"><strong>Bildernachweis:</strong> Die Bilder, Fotos und Grafiken auf dieser Webseite sind urheberrechtlich geschützt. Die Bilderrechte liegen bei den jeweiligen Fotografen und bei Hairfactory 75 by Nicky B.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 px-6 lg:px-8 border-t border-white/10">
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider text-white mb-4 block">HAIRFACTORY<span class="text-neonPink">75</span></a>
+            <div class="space-x-4 mb-4 text-sm">
+                <a href="impressum.html" class="text-gray-400 hover:text-neonPink transition-colors">Impressum</a>
+                <a href="datenschutz.html" class="text-gray-400 hover:text-neonPink transition-colors">Datenschutz</a>
+            </div>
+            <p class="text-xs text-gray-500">&copy; 2026 Hairfactory 75 by Nicky B.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon-path');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                // Close icon (X)
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                // Hamburger icon (☰)
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>
