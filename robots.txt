@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.hairfactory75.at/sitemap.xml
+Sitemap: https://www.hairfactory75.com/sitemap.xml
